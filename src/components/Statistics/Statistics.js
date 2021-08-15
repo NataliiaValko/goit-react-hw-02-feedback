@@ -10,7 +10,7 @@ const Statistics = (props) => {
           <li key={prop} className={s[prop]}>
             <p className={s.text}>
               {prop === "positivePercentage" ? "positive feedback" : prop}:{" "}
-              {props[prop]}%
+              {props[prop]}
             </p>
           </li>
         ))}
