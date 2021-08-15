@@ -2,8 +2,8 @@ import { Component } from "react";
 import FeedbackOptions from "../FeedbackOptions";
 import Statistics from "../Statistics";
 import Section from "../Section";
-import Container from "../Container";
 import Notification from "../Notification";
+import s from "./App.module.css";
 
 class App extends Component {
   static defaultProps = {
@@ -43,28 +43,26 @@ class App extends Component {
 
     return (
       <>
-        <Section title="Please, leave your feedback">
-          <Container>
+        <div className={s.wrapper}>
+          <Section title="Please leave your">
             <FeedbackOptions
               onLeaveFeedback={onLeaveFeedback}
               options={options}
             />
-          </Container>
-        </Section>
+          </Section>
+        </div>
         <Section>
-          <Container>
-            {total ? (
-              <Statistics
-                good={good}
-                neutral={neutral}
-                bad={bad}
-                total={total}
-                positivePercentage={positivePercentage}
-              />
-            ) : (
-              <Notification message="No feedback given" />
-            )}
-          </Container>
+          {total ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          ) : (
+            <Notification message="No feedback given..." />
+          )}
         </Section>
       </>
     );

@@ -1,24 +1,21 @@
-// import s from "./App.module.css";
+import s from "./Statistics.module.css";
 import PropTypes from "prop-types";
-
-import Container from "../Container";
 
 const Statistics = (props) => {
   return (
-    <section className="statistics">
-      <Container>
-        <h2>Statistics</h2>
-        <ul>
-          {Object.keys(props).map((prop) => (
-            <li key={prop}>
-              <p>
-                {prop}: {props[prop]}
-              </p>
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </section>
+    <>
+      <h2 className={s.title}>Statistics</h2>
+      <ul className={s.list}>
+        {Object.keys(props).map((prop) => (
+          <li key={prop} className={s[prop]}>
+            <p className={s.text}>
+              {prop === "positivePercentage" ? "positive feedback" : prop}:{" "}
+              {props[prop]}%
+            </p>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
