@@ -3,27 +3,19 @@ import PropTypes from "prop-types";
 
 import Container from "../Container";
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+const Statistics = (props) => {
   return (
     <section className="statistics">
       <Container>
         <h2>Statistics</h2>
         <ul>
-          <li>
-            <p>Good: {good}</p>
-          </li>
-          <li>
-            <p>Neutral: {neutral}</p>
-          </li>
-          <li>
-            <p>Bad: {bad}</p>
-          </li>
-          <li>
-            <p>Total: {total}</p>
-          </li>
-          <li>
-            <p>Positive feedback: {positivePercentage}%</p>
-          </li>
+          {Object.keys(props).map((prop) => (
+            <li key={prop}>
+              <p>
+                {prop}: {props[prop]}
+              </p>
+            </li>
+          ))}
         </ul>
       </Container>
     </section>
@@ -33,9 +25,9 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
 export default Statistics;
 
 Statistics.propTypes = {
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
-  total: PropTypes.number,
-  positivePercentage: PropTypes.number,
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };

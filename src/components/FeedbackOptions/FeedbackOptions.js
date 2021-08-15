@@ -1,9 +1,14 @@
 // import s from "./App.module.css";
 import PropTypes from "prop-types";
-import ButtonList from "../ButtonList";
 
 const FeedbackOptions = ({ onLeaveFeedback, options }) => (
-  <ButtonList onLeaveFeedback={onLeaveFeedback} options={options} />
+  <ul>
+    {Object.keys(options).map((type) => (
+      <li key={type}>
+        <button onClick={() => onLeaveFeedback(type)}>{type}</button>
+      </li>
+    ))}
+  </ul>
 );
 
 export default FeedbackOptions;
