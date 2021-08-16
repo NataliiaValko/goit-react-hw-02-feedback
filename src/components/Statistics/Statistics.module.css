@@ -17,11 +17,7 @@
   padding: 0;
 }
 
-.good,
-.bad,
-.neutral,
-.total,
-.positivePercentage {
+.result {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,14 +38,13 @@
     rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
-.good,
-.bad,
-.neutral {
+.details {
+  composes: result;
   width: 220px;
 }
 
-.total,
-.positivePercentage {
+.common {
+  composes: result;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
@@ -61,21 +56,26 @@
 }
 
 .good {
+  composes: details;
   background-color: rgb(89, 167, 89);
 }
 
 .neutral {
+  composes: details;
   background-color: rgb(253, 210, 91);
 }
 
 .bad {
+  composes: details;
   background-color: rgb(221, 54, 54);
 }
 
 .total {
+  composes: common;
   background-color: rgb(115, 115, 247);
 }
 
 .positivePercentage {
+  composes: common;
   background-color: rgb(169, 45, 207);
 }

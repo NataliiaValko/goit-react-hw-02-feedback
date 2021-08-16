@@ -26,14 +26,17 @@
 }
 
 .good {
+  composes: button;
   background-color: rgb(89, 167, 89);
 }
 
 .neutral {
+  composes: button;
   background-color: rgb(253, 210, 91);
 }
 
 .bad {
+  composes: button;
   background-color: rgb(221, 54, 54);
 }
 

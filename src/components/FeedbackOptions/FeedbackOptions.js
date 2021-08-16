@@ -3,17 +3,33 @@ import PropTypes from "prop-types";
 
 const FeedbackOptions = ({ onLeaveFeedback, options }) => (
   <ul className={s.button__list}>
-    {Object.keys(options).map((type) => (
-      <li key={type} className={s.button__item}>
-        <button
-          type="button"
-          className={[s.button, s[type]].join(" ")}
-          onClick={() => onLeaveFeedback(type)}
-        >
-          {type}
-        </button>
-      </li>
-    ))}
+    <li className={s.button__item}>
+      <button
+        type="button"
+        className={s.good}
+        onClick={() => onLeaveFeedback("good")}
+      >
+        Good
+      </button>
+    </li>
+    <li className={s.button__item}>
+      <button
+        type="button"
+        className={s.neutral}
+        onClick={() => onLeaveFeedback("neutral")}
+      >
+        Neutral
+      </button>
+    </li>
+    <li className={s.button__item}>
+      <button
+        type="button"
+        className={s.bad}
+        onClick={() => onLeaveFeedback("bad")}
+      >
+        Bad
+      </button>
+    </li>
   </ul>
 );
 
