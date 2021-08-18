@@ -35,8 +35,7 @@ class App extends Component {
   };
 
   render() {
-    const onLeaveFeedback = this.onLeaveFeedback;
-    const options = this.state;
+    const options = Object.keys(this.state);
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
@@ -46,7 +45,7 @@ class App extends Component {
         <div className={s.wrapper}>
           <Section title="Please leave your">
             <FeedbackOptions
-              onLeaveFeedback={onLeaveFeedback}
+              onLeaveFeedback={this.onLeaveFeedback}
               options={options}
             />
           </Section>
