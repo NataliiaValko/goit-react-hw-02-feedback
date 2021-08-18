@@ -35,8 +35,8 @@ class App extends Component {
   };
 
   render() {
-    const options = Object.keys(this.state);
-    const { good, neutral, bad } = this.state;
+    const names = Object.keys(this.state);
+    const options = this.state;
     const total = this.countTotalFeedback();
     const positivePercentage = this.countPositiveFeedbackPercentage();
 
@@ -46,16 +46,14 @@ class App extends Component {
           <Section title="Please leave your">
             <FeedbackOptions
               onLeaveFeedback={this.onLeaveFeedback}
-              options={options}
+              names={names}
             />
           </Section>
         </div>
         <Section>
           {total ? (
             <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
+              options={options}
               total={total}
               positivePercentage={positivePercentage}
             />
